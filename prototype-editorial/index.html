@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#F7F6F3" />
+    <title>The Scent Atlas — Editorial Prototype</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <a href="?view=home" class="wordmark" data-route="home">THE SCENT ATLAS<span>A FIELD GUIDE TO FEELING</span></a>
+      <nav aria-label="주 메뉴">
+        <a href="?view=learn" data-route="learn">Learn</a>
+        <a href="?view=atlas" data-route="atlas">The Atlas <span>↗</span></a>
+      </nav>
+      <span class="edition">VOL. 01 / SCENT, EXPLAINED</span>
+    </header>
+    <main id="app"></main>
+    <dialog id="compare" aria-labelledby="compare-title"></dialog>
+    <dialog id="help" aria-labelledby="help-title">
+      <button class="close-help" aria-label="설명 닫기">닫기 ×</button>
+      <p class="eyebrow">HOW TO READ THE ATLAS</p>
+      <h2 id="help-title">Three ways<br>to read a scent.</h2>
+      <div class="help-row"><strong>● Family</strong><p>향의 전체적인 방향. Floral은 꽃을 중심으로 읽는 계열입니다.</p></div>
+      <div class="help-row"><strong>◇ Note</strong><p>떠오르는 구체적인 냄새. Rose가 적혀 있어도 실제 장미 추출물을 뜻하지는 않습니다.</p></div>
+      <div class="help-row"><strong>○ Descriptor</strong><p>느껴지는 감각. Powdery는 고운 가루 같은 보송한 질감을 설명합니다.</p></div>
+      <p class="help-note">선은 설명 가능한 관계를 보여줍니다. 위치·거리·색은 측정값이 아닙니다. 노트가 계열의 모든 특징을 물려받지는 않습니다.</p>
+    </dialog>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

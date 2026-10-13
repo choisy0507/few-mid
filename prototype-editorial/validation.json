@@ -1,0 +1,16 @@
+{
+  "productionSmoke": "passed",
+  "offlineSmoke": "passed",
+  "offlineDocumentMethod": "Exact bundled HTML loaded through a local document fixture in an offline browser context; managed Chromium blocks file URLs",
+  "externalRequests": [],
+  "errors": [],
+  "widthsVerified": [
+    320,
+    390,
+    768,
+    1024,
+    1440
+  ],
+  "figmaOriginalInspected": false,
+  "reference": "User-provided final brief and imagery; Figma URL blocked by proxy"
+}

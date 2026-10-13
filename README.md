@@ -1,5 +1,11 @@
 # The Scent Atlas
 
+최신 요청의 **Experimental Beauty Editorial 웹 프로토타입**은
+[prototype-editorial](prototype-editorial/README.md)에 있습니다.
+사진·폰트가 포함된 [단일 HTML](prototype-editorial/The-Scent-Atlas-Editorial.html)을
+다운로드해 브라우저에서 열거나, 개발 서버의 `/prototype-editorial/index.html`을 엽니다.
+아래는 보존한 기존 사이트와 미드텀 제출 자료의 안내입니다.
+
 **전체 8개 향 계열에서 관련 노트와 감각 표현으로 펼쳐지는 인터랙티브 아틀라스.**
 원래 지도 안에서 선택한 계열을 확장하는 A 대안을 구현합니다. 종이색, 세리프, 연두 강조,
 우측 설명 패널과 두 인상 비교의 기존 시각 언어를 유지합니다.
