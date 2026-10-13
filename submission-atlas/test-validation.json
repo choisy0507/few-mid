@@ -1,0 +1,13 @@
+{
+  "command": "npm test",
+  "passed": 15,
+  "failed": 0,
+  "viewports": [
+    320,
+    390,
+    768,
+    1024,
+    1440
+  ],
+  "scope": "current eight-family atlas and nested qualitative comparison"
+}

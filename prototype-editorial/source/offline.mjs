@@ -1,0 +1,21 @@
+import { readFileSync, writeFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { resolve, dirname } from 'node:path';
+
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const read=name=>readFileSync(resolve(root,name),'utf8');
+const exported=['concepts','families','relations','get','family','facets','canonical','relatedFamilies','contextFor','advanced','comparisons','comparisonFor'];
+const removeExports=s=>s.replace(/\bexport\s+(const|function)\b/g,'$1');
+const removeImports=s=>s.replace(/^import\s+[\s\S]*?from\s+['"][^'"]+['"];\s*/,'');
+const previous=removeExports(read('../src/data.js'));
+const data=removeExports(removeImports(read('data.js')));
+let app=removeImports(read('app.js'));
+app=app.replace(/new URL\('\.\/assets\/(\w+)\.png',import\.meta\.url\)\.href/g,(_,key)=>JSON.stringify('data:image/png;base64,'+readFileSync(resolve(root,'assets',key+'.png')).toString('base64')));
+let css=read('style.css').replace(/url\('\.\/assets\/fonts\/([^']+)'\)/g,(_,name)=>`url('data:font/woff2;base64,${readFileSync(resolve(root,'assets/fonts',name)).toString('base64')}')`);
+let html=read('index.html');
+const script=`const previousData=(()=>{${previous}\nreturn {concepts,relations};})();\nconst editorialData=(()=>{const {concepts:previous,relations:previousRelations}=previousData;\n${data}\nreturn {${exported.join(',')}};})();\n(()=>{const {${exported.join(',')}}=editorialData;\n${app}\n})();`;
+html=html.replace('<link rel="stylesheet" href="style.css" />',`<style>${css}</style>`);
+html=html.replace('<script type="module" src="app.js"></script>',`<script>${script.replace(/<\/script/gi,'<\\/script')}</script>`);
+const output=resolve(root,'The-Scent-Atlas-Editorial.html');
+writeFileSync(output,html);
+console.log(JSON.stringify({output,bytes:Buffer.byteLength(html)}));

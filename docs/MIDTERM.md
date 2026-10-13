@@ -1,3 +1,7 @@
+# 기록: 초기 12개 개념 프로토타입
+
+현재 A 대안의 제출 기획은 [submission-atlas](../submission-atlas/PROJECT-PROPOSAL.md)를 참고하세요.
+
 # The Language of Scent — Midterm proposal v1
 
 추가 대화를 반영한 발전 방향은 [The Anatomy of Scent 제안](NEXT-DIRECTION.md)에 정리했습니다.

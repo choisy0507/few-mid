@@ -151,3 +151,6 @@ playwright-report/
 
 # Turbo Repo
 .turbo
+
+# Submission document generators
+__pycache__/
