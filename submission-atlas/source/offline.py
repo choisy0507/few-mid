@@ -14,5 +14,6 @@ data=(root/'src/data.js').read_text().replace('export const ','const ')
 main=(root/'src/main.js').read_text();main=re.sub(r'^import[\s\S]+?from [\"\']\./data.js[\"\'];\s*','',main,count=1)
 html=re.sub(r'<script\s+type="module"\s+src="/src/main.js"></script>',lambda m:'<script>'+data+'\n'+main+'</script>',html)
 assert 'type="module"' not in html
+html='\n'.join(line.rstrip() for line in html.splitlines())+'\n'
 (out/'index.html').write_text(html)
 print('Single-file offline atlas saved:',len(html.encode()),'bytes')
