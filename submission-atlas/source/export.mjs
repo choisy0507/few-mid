@@ -1,0 +1,35 @@
+import { chromium } from 'playwright';
+import { spawnSync } from 'node:child_process';
+import { writeFileSync, readFileSync, mkdirSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import assert from 'node:assert/strict';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const base='http://127.0.0.1:5173/';
+const python=()=>{const r=spawnSync('python3',[path.join(root,'source/build_submission.py')],{stdio:'inherit'});if(r.status)throw Error('Build failed')};
+const offline=spawnSync('python3',[path.join(root,'source/offline.py')],{stdio:'inherit'});if(offline.status)throw Error('Offline build failed');
+python();
+const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium'});
+const p=await b.newPage({viewport:{width:1600,height:1100},reducedMotion:'reduce'});
+await p.goto(base);await p.evaluate(()=>document.fonts.ready);
+await p.locator('.explore-layout').screenshot({path:path.join(root,'assets/atlas-overview.png')});
+for(const id of ['woody','sandalwood']){await p.locator(`[data-concept="${id}"]`).click();await p.locator('.explore-layout').screenshot({path:path.join(root,'assets/atlas-'+id+'.png')})}
+await p.locator('[data-concept="floral"]').click();await p.locator('[data-concept="musk"]').click();
+await p.locator('.explore-layout').screenshot({path:path.join(root,'assets/atlas-musk.png')});
+await p.locator('.detail-compare').click();await p.locator('#compare-dialog').screenshot({path:path.join(root,'assets/compare-musk.png')});
+await p.keyboard.press('Escape');await p.locator('[data-concept="floral"]').click();await p.locator('[data-concept="powdery"]').click();await p.locator('.detail-compare').click();await p.locator('#compare-dialog').screenshot({path:path.join(root,'assets/compare-soapy-powdery.png')});await p.keyboard.press('Escape');
+await p.locator('[data-concept="woody"]').click();await p.setViewportSize({width:390,height:844});await p.locator('.explore-layout').screenshot({path:path.join(root,'assets/atlas-mobile.png')});
+await p.setViewportSize({width:1600,height:1100});await p.screenshot({path:path.join(root,'assets/home-full.png'),fullPage:true});
+for(const name of ['sitemap','user-flow','wireframe-desktop','wireframe-expansion','wireframe-compare','wireframe-responsive']){await p.setViewportSize({width:1400,height:700});await p.goto(base+'submission-atlas/assets/'+name+'.svg');await p.evaluate(()=>document.fonts.ready);await p.screenshot({path:path.join(root,'assets/'+name+'.png')})}
+python();
+await p.setViewportSize({width:1600,height:950});await p.goto(base+'submission-atlas/presentation.html');await p.evaluate(()=>document.fonts.ready);assert.ok(await p.locator('img').evaluateAll(imgs=>imgs.every(i=>i.complete&&i.naturalWidth>0)));
+await p.evaluate(()=>document.querySelectorAll('.slide').forEach(s=>{s.style.display='block';s.style.transform='none'}));
+const overflow=await p.locator('.txt').evaluateAll(nodes=>nodes.filter(n=>n.scrollHeight>n.clientHeight+2||n.scrollWidth>n.clientWidth+2).map(n=>({text:n.textContent,height:n.clientHeight,scrollHeight:n.scrollHeight,slide:[...document.querySelectorAll('.slide')].indexOf(n.closest('.slide'))+1})));
+writeFileSync(path.join(root,'layout-validation.json'),JSON.stringify({slideCount:await p.locator('.slide').count(),textOverflow:overflow},null,2));if(overflow.length)console.log('Text overflow:',overflow);
+await p.emulateMedia({media:'print'});await p.pdf({path:path.join(root,'The-Scent-Atlas.pdf'),preferCSSPageSize:true,printBackground:true});
+await p.goto(base+'submission-atlas/project-proposal.html');await p.evaluate(()=>document.fonts.ready);await p.pdf({path:path.join(root,'Project-Proposal.pdf'),preferCSSPageSize:true,printBackground:true,displayHeaderFooter:true,headerTemplate:'<span></span>',footerTemplate:'<div style="font-family:Arial;font-size:8px;width:100%;margin:0 19mm;color:#657369;display:flex;justify-content:space-between"><span>THE SCENT ATLAS / MIDTERM</span><span class="pageNumber"></span></div>'});
+await p.emulateMedia({media:'screen'});await p.setViewportSize({width:1440,height:1000});
+const external=[];p.on('request',r=>{if(!r.url().startsWith(base)&&!r.url().startsWith('data:'))external.push(r.url())});
+await p.goto(base+'submission-atlas/prototype/index.html');await p.locator('[data-concept="woody"]').click();await p.locator('[data-concept="sandalwood"]').click();assert.ok((await p.locator('.detail-name').textContent()).includes('Sandalwood'));await p.locator('.detail-compare').click();assert.ok(await p.locator('#compare-dialog').isVisible());await p.keyboard.press('Escape');assert.equal(await p.locator('.map-node.family').count(),8);assert.deepEqual(external,[]);
+writeFileSync(path.join(root,'offline-validation.json'),JSON.stringify({families:8,conceptNavigation:true,contextualComparison:true,externalRuntimeRequests:external},null,2));
+await b.close();console.log('Updated A-design slides, writing, screenshots and offline prototype exported.');

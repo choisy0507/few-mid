@@ -1,3 +1,7 @@
+# 기록: 초기 프로토타입 필드 노트
+
+현재 8계열 A 대안의 검증과 조직화 과정은 [최신 필드 노트](../submission-atlas/FIELD-NOTES.md)에 정리했습니다.
+
 # Week 05 — Field notes
 
 ## 구현에서 확인한 판단
