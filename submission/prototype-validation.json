@@ -1,0 +1,91 @@
+{
+  "checks": [
+    {
+      "name": "Notes: Rose + Cedarwood is displayed",
+      "passed": true
+    },
+    {
+      "name": "Feel: Dry expression is displayed",
+      "passed": true
+    },
+    {
+      "name": "Case swap keeps lens and updates expression",
+      "passed": true
+    },
+    {
+      "name": "Changing perspective preserves the focused element",
+      "passed": true
+    },
+    {
+      "name": "Case swap preserves Rose focus",
+      "passed": true
+    },
+    {
+      "name": "Feel describes the selected Rose element",
+      "passed": true
+    },
+    {
+      "name": "Family describes the selected Rose direction",
+      "passed": true
+    },
+    {
+      "name": "Family labels are directions, not note names",
+      "passed": true
+    },
+    {
+      "name": "Keyboard wraps Family to Notes",
+      "passed": true
+    },
+    {
+      "name": "End key selects Family",
+      "passed": true
+    },
+    {
+      "name": "Reset focus preserves case and perspective",
+      "passed": true
+    },
+    {
+      "name": "Connection exploration explains type distinction",
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow at 320px",
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow at 390px",
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow at 680px",
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow at 681px",
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow at 768px",
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow at 1024px",
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow at 1440px",
+      "passed": true
+    },
+    {
+      "name": "No JavaScript errors",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion disables transitions",
+      "passed": true
+    }
+  ],
+  "total": 21,
+  "browser": "Chromium",
+  "scope": "standalone submission design prototype"
+}
