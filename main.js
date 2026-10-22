@@ -107,4 +107,21 @@
     const target=panel.querySelector('[data-open-compare]');
     if(target) target.focus({preventScroll:true});
   });
+
+  // The Learn examples illustrate existing curated family-note-descriptor links.
+  const learnExamples = {
+    vanilla: { family:'Gourmand', note:'Vanilla', descriptor:'Sweet', sentence:'A gourmand fragrance may feature a vanilla note and have a sweet quality.' },
+    citrus: { family:'Fresh', note:'Lemon', descriptor:'Crisp', sentence:'A fresh fragrance may feature a lemon note and have a crisp quality.' },
+    floral: { family:'Floral', note:'Iris', descriptor:'Powdery', sentence:'A floral fragrance may feature an iris note and have a powdery quality.' }
+  };
+  const exampleChoices = document.querySelectorAll('[data-example]');
+  exampleChoices.forEach(button => button.addEventListener('click', () => {
+    const example = learnExamples[button.dataset.example];
+    if (!example) return;
+    document.getElementById('example-family').textContent = example.family;
+    document.getElementById('example-note').textContent = example.note;
+    document.getElementById('example-descriptor').textContent = example.descriptor;
+    document.getElementById('example-sentence').textContent = example.sentence;
+    exampleChoices.forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
+  }));
 })();
