@@ -68,6 +68,15 @@ i,em{font-family:var(--serif);font-weight:400}
 .orb-nude{background:radial-gradient(circle at 28% 28%,white 0,white 13%,#e8d2c5 22%,#cbbfb5 80%)}
 .orb-blue{background:radial-gradient(circle at 28% 28%,white 0,white 13%,#d5ebf1 23%,#abcbd6 80%)}
 .learn-card h3{font:400 45px/1 var(--serif);margin:8px 0 14px}
+.learn-type-symbol{display:inline-block;flex:none;width:12px;height:12px;vertical-align:middle}
+.learn-type-symbol.family{background:#d4a7ad;border-radius:50%}
+.learn-type-symbol.note{width:10px;height:10px;border:1.5px solid #7893a6;transform:rotate(45deg);margin:0 2px}
+.learn-type-symbol.descriptor{border:1.5px solid #b88f9b;border-radius:50%}
+.learn-example{border-top:1px solid #e2e9ec;padding-top:12px;margin:15px 0 10px}
+.learn-example p{font:italic 26px/1.1 var(--serif);color:#788e94;margin:6px 0 0}
+.connection-strip .connection-term{display:inline-flex;align-items:center;gap:9px;font:400 25px/1.1 var(--serif);padding:0;color:var(--ink)}
+.connection-strip .connection-arrow{display:inline-block;font:400 17px var(--sans);padding:0 12px;color:#849ca5}
+.connection-strip .learn-type-symbol{padding:0}
 .learn-definition{font:400 17px/1.35 var(--serif);margin:0 0 18px}
 .learn-explain{font-size:11px;line-height:1.65;color:#839097;max-width:260px;margin:0}
 .connection-strip{display:flex;align-items:center;gap:30px;background:#eff6fa;border-radius:19px;padding:24px 29px;margin-top:27px}
