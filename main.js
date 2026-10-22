@@ -14,7 +14,7 @@
     return familyKeys.filter(key => families[key][kind === 'note' ? 'notes' : 'descriptors'].includes(name));
   }
   function termChips(ids, kind) {
-    return ids.map(name => `<button class="term-chip ${kind}" type="button" data-kind="${kind}" data-term="${name}">${name}<span aria-hidden="true">↗</span></button>`).join('');
+    return ids.map(name => `<button class="term-chip ${kind}" type="button" data-kind="${kind}" data-term="${name}"><span class="term-symbol" aria-hidden="true"></span>${name}<span aria-hidden="true">↗</span></button>`).join('');
   }
   function familyChip(key) {
     return `<button class="family-backlink" type="button" data-go-family="${key}"><span class="family-backlink-dot" style="--chip:${families[key].color}" aria-hidden="true"></span>${families[key].name}<span aria-hidden="true">↗</span></button>`;
