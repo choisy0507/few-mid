@@ -6,9 +6,9 @@
   <meta name="description" content="An interactive field guide to fragrance families, notes, and the words we use to describe scent.">
   <meta name="theme-color" content="#F7F6F3">
   <title>The Language of Scent — An Interactive Fragrance Guide</title>
-  <link rel="stylesheet" href="./style.css?v=75f9cb1b">
+  <link rel="stylesheet" href="./style.css?v=learn-example-20261022">
   <script src="./data.js" defer></script>
-  <script src="./main.js?v=db825ca5" defer></script>
+  <script src="./main.js?v=learn-example-20261022" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -64,11 +64,25 @@
           <p class="learn-explain">A descriptor expresses a quality or sensation that can appear across different scents.</p>
         </article>
       </div>
-      <div class="connection-strip">
-        <div>
-          <span class="mini-label">EXAMPLE / ONE SCENT, THREE DESCRIPTIONS</span>
-          <p><span class="connection-term"><i class="learn-type-symbol family" aria-hidden="true"></i>Floral</span><span class="connection-arrow" aria-hidden="true">·</span><span class="connection-term"><i class="learn-type-symbol note" aria-hidden="true"></i>Rose</span><span class="connection-arrow" aria-hidden="true">·</span><span class="connection-term"><i class="learn-type-symbol descriptor" aria-hidden="true"></i>Powdery</span></p>
-          <p class="connection-caption">One fragrance described through three types of information.</p>
+      <div class="connection-strip" aria-label="Fragrance example">
+        <div class="example-top">
+          <span class="mini-label">FOR EXAMPLE / ONE FRAGRANCE</span>
+          <div class="example-switch" role="group" aria-label="Choose a fragrance example">
+            <button type="button" class="example-choice" data-example="vanilla" aria-pressed="true">Vanilla</button>
+            <button type="button" class="example-choice" data-example="citrus" aria-pressed="false">Citrus</button>
+            <button type="button" class="example-choice" data-example="floral" aria-pressed="false">Floral</button>
+          </div>
+        </div>
+        <div class="example-content">
+          <div class="example-intro">
+            <h3>One scent, three ways to describe it.</h3>
+            <p id="example-sentence" aria-live="polite">A gourmand fragrance may feature a vanilla note and have a sweet quality.</p>
+          </div>
+          <div class="example-types" aria-live="polite" aria-label="Three types of fragrance information">
+            <div class="example-type-row"><i class="learn-type-symbol family" aria-hidden="true"></i><span class="example-type-label">FAMILY</span><strong id="example-family">Gourmand</strong></div>
+            <div class="example-type-row"><i class="learn-type-symbol note" aria-hidden="true"></i><span class="example-type-label">NOTE</span><strong id="example-note">Vanilla</strong></div>
+            <div class="example-type-row"><i class="learn-type-symbol descriptor" aria-hidden="true"></i><span class="example-type-label">DESCRIPTOR</span><strong id="example-descriptor">Sweet</strong></div>
+          </div>
         </div>
       </div>
     </section>
