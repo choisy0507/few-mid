@@ -105,7 +105,7 @@ i,em{font-family:var(--serif);font-weight:400}
 .family-fougere{--accent:#b8cec5;top:47%;left:1.5%}
 .atlas-legend{border-top:1px solid #ffffffab;min-height:67px;position:relative;z-index:3;display:flex;align-items:center;gap:18px;padding:12px 24px;color:#768e98;font-size:9px;font-weight:700;letter-spacing:.7px}
 .atlas-legend>span{display:flex;align-items:center;gap:6px;white-space:nowrap}
-.legend-point{width:9px;height:9px;display:inline-block}.legend-family{background:#acc4c9;border-radius:50%}.legend-note{border:1.5px solid #a8bac0;transform:rotate(45deg)}.legend-descriptor{background:#dde8eb;border:1px solid #92a6b0;border-radius:50%}
+.legend-point{width:9px;height:9px;display:inline-block}.legend-family{background:#acc4c9;border-radius:50%}.legend-note{border:1.5px solid #a8bac0;transform:rotate(45deg)}.legend-descriptor{background:transparent;border:1.5px solid #92a6b0;border-radius:50%}
 
 /* Sidebar and information states */
 .detail-panel{border:1px solid #dee6e9;border-radius:24px;background:#fff;min-width:0;overflow:hidden;min-height:680px}
@@ -135,6 +135,8 @@ i,em{font-family:var(--serif);font-weight:400}
 .term-chip:hover,.term-chip:focus-visible{transform:translateY(-2px);background:#e6f1f6;border-color:#7893a6}
 .term-chip.descriptor{background:#fcf6f5;border-color:#f0e1df;color:#89676d}.term-chip.descriptor:hover,.term-chip.descriptor:focus-visible{background:#f5e7e7}
 .term-chip span{font-size:12px;font-weight:400}
+.term-chip .term-symbol{display:inline-block;flex:none;width:9px;height:9px;border:1.5px solid #a8bac0;transform:rotate(45deg)}
+.term-chip.descriptor .term-symbol{border-color:#b88f9b;border-radius:50%;transform:none}
 .term-visual{height:175px;margin-top:22px;border-radius:15px;overflow:hidden;position:relative;background:#edf3f6}
 .term-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 15%,#ffffffaa,transparent 52%),radial-gradient(circle at 78% 67%,#c1dbe398,transparent 40%)}
 .term-visual-form{position:absolute;width:140px;height:140px;top:30px;left:33%;border-radius:50%;background:radial-gradient(circle at 33% 28%,#ffffffea 3%,#e9f1f5b7 40%,#b4cbd578 75%);box-shadow:inset 8px 7px 20px #fff9,inset -12px -10px 20px #9db4bf57,8px 15px 25px #a5b6b841}
