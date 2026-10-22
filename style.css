@@ -119,12 +119,21 @@ i,em{font-family:var(--serif);font-weight:400}
 .detail-empty .button-solid{width:100%}
 .panel-content{padding:26px 27px 28px;min-height:680px;display:flex;flex-direction:column}
 .panel-head{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:9px;font-weight:700;letter-spacing:.9px;color:#83939a}
+.panel-type-label{display:inline-flex;align-items:center;gap:8px;color:#506a77}
+.panel-type-symbol{display:inline-block;flex:none;width:18px;height:18px;vertical-align:middle}
+.panel-type-symbol.family{background:var(--type-color,#acc4c9);border-radius:50%}
+.panel-type-symbol.note{width:15px;height:15px;border:2px solid #7893a6;transform:rotate(45deg);margin:0 2px}
+.panel-type-symbol.descriptor{border:2px solid #b88f9b;border-radius:50%}
+.panel-type-label .panel-type-symbol{width:10px;height:10px}
+.panel-type-label .panel-type-symbol.note{width:8px;height:8px;border-width:1.5px;margin:0 2px}
+.panel-type-label .panel-type-symbol.descriptor{border-width:1.5px}
 .small-action{border:0;background:transparent;font-size:9px;letter-spacing:.2px;font-weight:700;color:#50697a;text-decoration:underline;text-underline-offset:4px;padding:4px}
 .panel-family-visual{height:157px;margin-top:23px;background:radial-gradient(circle at 50% 40%,#ffffff 0,transparent 38%),linear-gradient(125deg,#f5f9fa 7%,var(--family-color) 110%);border-radius:16px;position:relative;overflow:hidden}
 .panel-family-visual::before,.panel-family-visual::after{content:'';position:absolute;border-radius:50%;box-shadow:inset 12px 8px 22px #ffffffa8,inset -10px -9px 20px #9fb2b155,7px 13px 25px #6e8b9a36;background:radial-gradient(circle at 25% 20%,#fff8,transparent 40%),#effbff58;border:1px solid #ffffff9c}
 .panel-family-visual::before{width:126px;height:126px;left:35%;top:19px}.panel-family-visual::after{width:66px;height:66px;left:60%;top:-20px}
 .panel-glow{position:absolute;width:60%;height:90%;background:#fff9;filter:blur(30px);left:25%;top:25%;border-radius:50%}
 .panel-title{font:400 53px/.95 var(--serif);letter-spacing:-.6px;margin:24px 0 13px}.panel-title i{color:#b0c4c9}
+.panel-title .panel-type-symbol{margin-right:12px}
 .panel-summary{font-size:12px;line-height:1.75;max-width:330px;margin:0 0 10px;color:#3d484c}
 .detail-scene{font:italic 19px/1.55 var(--serif);color:#667985;margin:8px 0 15px}
 .term-group{margin-top:16px;padding-top:14px;border-top:1px solid #e2e9ec}
