@@ -254,3 +254,26 @@ i,em{font-family:var(--serif);font-weight:400}
   .family-node.selected{transform:none}
   .family-swatch{width:13px;height:13px}
 }
+
+/* Learn: one concrete scent described at three different levels */
+.connection-strip{display:block;padding:22px 28px}
+.example-top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.example-switch{display:flex;gap:5px;flex-wrap:wrap}
+.example-choice{border:1px solid #cfdee5;background:#ffffff85;color:#697d88;border-radius:99px;padding:7px 13px;font:600 10px/1.3 var(--sans);transition:background .2s,border-color .2s}
+.example-choice:hover,.example-choice:focus-visible{border-color:#869eaa;background:#fff}
+.example-choice[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:white}
+.example-content{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.8fr);gap:26px;align-items:center;margin-top:15px}
+.example-intro h3{font:400 clamp(24px,2.6vw,34px)/1.08 var(--serif);margin:0 0 10px;max-width:350px}
+.connection-strip .example-intro p{font:400 12px/1.7 var(--sans);color:#657178;margin:0;max-width:370px}
+.example-types{background:#ffffffc9;border:1px solid #e0eaf0;border-radius:13px;padding:7px 18px}
+.example-type-row{display:grid;grid-template-columns:14px minmax(80px,1fr) minmax(0,1.25fr);gap:12px;align-items:center;min-height:43px}
+.example-type-row+.example-type-row{border-top:1px solid #edf1f3}
+.example-type-label{font:700 9px/1.2 var(--sans);letter-spacing:1px;color:#758994}
+.example-type-row strong{font:400 24px/1.15 var(--serif);color:var(--ink);text-align:left}
+@media(max-width:650px){
+  .connection-strip{padding:19px}
+  .example-content{grid-template-columns:1fr;gap:16px}
+  .example-intro h3{font-size:29px}
+  .example-switch{width:100%}
+  .example-choice{flex:1}
+}
