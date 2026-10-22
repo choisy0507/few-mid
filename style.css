@@ -126,7 +126,7 @@ i,em{font-family:var(--serif);font-weight:400}
 .panel-glow{position:absolute;width:60%;height:90%;background:#fff9;filter:blur(30px);left:25%;top:25%;border-radius:50%}
 .panel-title{font:400 53px/.95 var(--serif);letter-spacing:-.6px;margin:24px 0 13px}.panel-title i{color:#b0c4c9}
 .panel-summary{font-size:12px;line-height:1.75;max-width:330px;margin:0 0 10px;color:#3d484c}
-.detail-scene{font:italic 19px/1.35 var(--serif);color:#9aabad;margin:8px 0 15px}
+.detail-scene{font:italic 19px/1.55 var(--serif);color:#667985;margin:8px 0 15px}
 .term-group{margin-top:16px;padding-top:14px;border-top:1px solid #e2e9ec}
 .term-group-heading{font-size:9px;letter-spacing:.8px;font-weight:700;color:#788b93;display:flex;justify-content:space-between;gap:8px;margin-bottom:13px}
 .term-group-heading span+span{font-weight:400;color:#93a5aa}
