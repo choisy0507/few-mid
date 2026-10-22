@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
 
 :root {
-  --white:#f7f6f3; --paper:#fbfcfb; --glass:#dde2e5; --water:#c8dde2;
+  --white:#f7f6f3; --paper:#F1F1F0; --glass:#dde2e5; --water:#c8dde2;
   --rose:#c98688; --ink:#302b28; --muted:#777e80; --line:#dde4e7;
   --navy:#354d60; --soft-blue:#eff6fa; --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
   --sans:'DM Sans',Arial,Helvetica,sans-serif;
