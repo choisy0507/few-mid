@@ -113,8 +113,8 @@
   // The Learn examples illustrate existing curated family-note-descriptor links.
   const learnExamples = {
     vanilla: { family:'Gourmand', note:'Vanilla', descriptor:'Sweet', sentence:'A gourmand fragrance may feature a vanilla note and have a sweet quality.' },
-    citrus: { family:'Fresh', note:'Lemon', descriptor:'Citrusy', sentence:'A fresh fragrance may feature a lemon note and have a citrusy quality.' },
-    floral: { family:'Floral', note:'Iris', descriptor:'Powdery', sentence:'A floral fragrance may feature an iris note and have a powdery quality.' }
+    lemon: { family:'Fresh', note:'Lemon', descriptor:'Citrusy', sentence:'A fresh fragrance may feature a lemon note and have a citrusy quality.' },
+    rose: { family:'Floral', note:'Rose', descriptor:'Green', sentence:'A floral fragrance may feature a rose note with a green, stem-like quality.' }
   };
   const exampleChoices = document.querySelectorAll('[data-example]');
   exampleChoices.forEach(button => button.addEventListener('click', () => {
