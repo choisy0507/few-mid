@@ -44,9 +44,9 @@
     const f = families[key];
     panel.innerHTML = `
       <div class="panel-content">
-        <div class="panel-head"><span class="panel-type-label"><span class="panel-type-symbol family" style="--type-color:${f.color}" aria-hidden="true"></span>FAMILY / ${f.number} OF 08</span><button type="button" class="small-action" data-clear>VIEW ALL ↶</button></div>
+        <div class="panel-head"><span class="panel-type-label"><span class="panel-type-symbol family" style="--type-color:${f.color}" aria-hidden="true"></span>FAMILY</span><button type="button" class="small-action" data-clear>VIEW ALL ↶</button></div>
         <div class="panel-family-visual" style="--family-color:${f.color}"><span class="panel-glow"></span></div>
-        <h3 class="panel-title"><span class="panel-type-symbol family" style="--type-color:${f.color}" aria-hidden="true"></span>${f.name}<i>.</i></h3>
+        <h3 class="panel-title">${f.name}<span class="title-type-mark family" style="--type-color:${f.color}" aria-hidden="true"></span></h3>
         <p class="panel-summary">${f.summary}</p>
         <p class="detail-scene">${f.scene}</p>
         <div class="term-group"><div class="term-group-heading"><span>NOTES</span></div><div class="term-list">${termChips(f.notes,'note')}</div></div>
@@ -68,9 +68,9 @@
       ? `<button class="button-solid" type="button" data-open-compare>COMPARE POWDERY &amp; SOAPY <span aria-hidden="true">↗</span></button>` : '';
     panel.innerHTML = `
       <div class="panel-content term-detail">
-        <div class="panel-head"><span class="panel-type-label"><span class="panel-type-symbol ${kind}" aria-hidden="true"></span>${kind.toUpperCase()} / SELECTED CONCEPT</span><button type="button" class="small-action" data-go-family="${sourceFamily}">← BACK TO FAMILY</button></div>
+        <div class="panel-head"><span class="panel-type-label"><span class="panel-type-symbol ${kind}" aria-hidden="true"></span>${kind.toUpperCase()}</span><button type="button" class="small-action" data-go-family="${sourceFamily}">← BACK TO FAMILY</button></div>
         <div class="term-visual ${kind}-visual" aria-hidden="true"><div class="term-visual-form"></div></div>
-        <h3 class="panel-title"><span class="panel-type-symbol ${kind}" aria-hidden="true"></span>${name}<i>.</i></h3>
+        <h3 class="panel-title">${name}<span class="title-type-mark ${kind}" aria-hidden="true"></span></h3>
         <p class="panel-summary">${summary}</p>
         ${scentReference}
         ${direct.length ? `<div class="term-group"><div class="term-group-heading"><span>RELATED DESCRIPTORS</span></div><div class="term-list">${termChips(direct,'descriptor')}</div></div>` : ''}
