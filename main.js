@@ -61,8 +61,9 @@
     const linkedFamilies = keysFor(kind,name);
     const item = dictionary[name];
     const summary = kind === 'note' ? item.summary : item;
-    const scene = kind === 'note' ? item.scene : 'A descriptive word can connect to more than one family. The surrounding notes and context shape what it suggests.';
     const direct = kind === 'note' && item.connects ? item.connects : [];
+    const relatedNotes = kind === 'descriptor' ? Object.keys(notes).filter(noteName => notes[noteName].connects.includes(name)) : [];
+    const scentReference = kind === 'note' ? '<div class="term-context"><span>SCENT REFERENCE</span><p>' + item.scentReference + '</p></div>' : '';
     const compareButton = (name === 'Powdery' || name === 'Soapy')
       ? `<button class="button-solid" type="button" data-open-compare>COMPARE POWDERY &amp; SOAPY <span aria-hidden="true">↗</span></button>` : '';
     panel.innerHTML = `
@@ -71,8 +72,9 @@
         <div class="term-visual ${kind}-visual" aria-hidden="true"><div class="term-visual-form"></div></div>
         <h3 class="panel-title"><span class="panel-type-symbol ${kind}" aria-hidden="true"></span>${name}<i>.</i></h3>
         <p class="panel-summary">${summary}</p>
-        <div class="term-context"><span>IMAGINE THIS</span><p>${scene}</p></div>
+        ${scentReference}
         ${direct.length ? `<div class="term-group"><div class="term-group-heading"><span>RELATED DESCRIPTORS</span></div><div class="term-list">${termChips(direct,'descriptor')}</div></div>` : ''}
+        ${kind === 'descriptor' ? `<div class="term-group"><div class="term-group-heading"><span>RELATED NOTES</span><span>${relatedNotes.length} LINK${relatedNotes.length===1?'':'S'}</span></div><div class="term-list">${termChips(relatedNotes,'note')}</div></div>` : ''}
         <div class="term-group shared-group"><div class="term-group-heading"><span>RELATED FAMILIES</span><span>${linkedFamilies.length} LINK${linkedFamilies.length===1?'':'S'}</span></div><div class="shared-links">${linkedFamilies.map(familyChip).join('')}</div></div>
         
         ${compareButton}
@@ -111,7 +113,7 @@
   // The Learn examples illustrate existing curated family-note-descriptor links.
   const learnExamples = {
     vanilla: { family:'Gourmand', note:'Vanilla', descriptor:'Sweet', sentence:'A gourmand fragrance may feature a vanilla note and have a sweet quality.' },
-    citrus: { family:'Fresh', note:'Lemon', descriptor:'Crisp', sentence:'A fresh fragrance may feature a lemon note and have a crisp quality.' },
+    citrus: { family:'Fresh', note:'Lemon', descriptor:'Citrusy', sentence:'A fresh fragrance may feature a lemon note and have a citrusy quality.' },
     floral: { family:'Floral', note:'Iris', descriptor:'Powdery', sentence:'A floral fragrance may feature an iris note and have a powdery quality.' }
   };
   const exampleChoices = document.querySelectorAll('[data-example]');
